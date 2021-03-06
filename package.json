@@ -1,0 +1,53 @@
+{
+  "name": "cypress-circleci-example",
+  "version": "1.0.0",
+  "description": "Cypress CircleCI example",
+  "main": "",
+  "engines": {
+    "node": "v15.7.0",
+    "npm": "~7.5.0"
+  },
+  "scripts": {
+    "test": "cypress open",
+    "test:ci": "cypress run --browser chrome --spec cypress/integration/examples/*.spec.js",
+    "test:ci:dashboard": "cypress run --record --key ${DASHBOARD_KEY} --browser chrome --spec cypress/integration/examples/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beemi/cypress-circleci-example.git"
+  },
+  "author": {
+    "email": "beemi.raja@gmail.com",
+    "name": "Raja Beemi"
+  },
+  "keywords": [
+    "testing",
+    "cypress",
+    "ui",
+    "dom",
+    "integration",
+    "functional",
+    "end-to-end",
+    "e2e",
+    "Techical test",
+    "circle ci",
+    "ci/cd"
+  ],
+  "license": "ISC",
+  "funding": {
+    "type": "individual",
+    "url": "http://example.com/donate"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/beemi/cypress-circleci-example/issues"
+  },
+  "homepage": "https://github.com/beemi/cypress-circleci-example#readme",
+  "devDependencies": {
+    "cypress": "^6.6.0"
+  }
+}
