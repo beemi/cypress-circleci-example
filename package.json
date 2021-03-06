@@ -48,6 +48,6 @@
   },
   "homepage": "https://github.com/beemi/cypress-circleci-example#readme",
   "devDependencies": {
-    "cypress": "^6.6.0"
+    "cypress": "6.6.0"
   }
 }
