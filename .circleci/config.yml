@@ -54,3 +54,23 @@ workflows:
               only:
                 - master
                 - main
+
+      - cypress/run:
+          name: Prod tests
+          debug: 'cypress'
+          requires:
+            - install-dependencies
+            - Dev tests
+            - Stage tests
+          attach-workspace: true
+          record: true
+          tags: nightly,staging
+          executor: cypress/browsers-chrome78-ff70
+          parallel: true
+          parallelism: 1
+          command: "npm run test:ci"
+          filters:
+            branches:
+              only:
+                - master
+                - main
