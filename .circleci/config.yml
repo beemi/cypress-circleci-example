@@ -7,8 +7,6 @@ workflows:
   run-tests:
     jobs:
       - cypress/install:
-          requires:
-            - build
           name: "install-dependencies"
           build: "npm install"
           post-steps:
@@ -39,7 +37,6 @@ workflows:
           debug: 'cypress'
           requires:
             - install-dependencies
-            - Dev tests
           attach-workspace: true
           record: true
           tags: nightly,staging
@@ -58,8 +55,6 @@ workflows:
           debug: 'cypress'
           requires:
             - install-dependencies
-            - Dev tests
-            - Stage tests
           attach-workspace: true
           record: true
           tags: nightly,staging
