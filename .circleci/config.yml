@@ -6,8 +6,6 @@ orbs:
 workflows:
   run-tests:
     jobs:
-      - build:
-          type: approval
       - cypress/install:
           requires:
             - build
