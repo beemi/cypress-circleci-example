@@ -1,0 +1,53 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.27.0
+
+workflows:
+  run-tests:
+    jobs:
+      - build:
+          type: approval
+      - cypress/install:
+          requires:
+            - build
+          name: "install-dependencies"
+          build: "npm install"
+          post-steps:
+            - run: npx cypress cache path
+            - run: npx cypress cache list
+            - run: npx cypress info
+
+      - cypress/run:
+          name: Dev tests
+          debug: 'cypress'
+          requires:
+            - install-dependencies
+          attach-workspace: true
+          record: true
+          tags: nightly,dev
+          executor: cypress/browsers-chrome78-ff70
+          parallel: true
+          parallelism: 1
+          command: "npm run test:ci"
+          filters:
+            branches:
+              only:
+                - master
+
+      - cypress/run:
+          name: Stage tests
+          debug: 'cypress'
+          requires:
+            - install-dependencies
+            - Dev tests
+          attach-workspace: true
+          record: true
+          tags: nightly,staging
+          executor: cypress/browsers-chrome78-ff70
+          parallel: true
+          parallelism: 1
+          command: "npm run test:ci"
+          filters:
+            branches:
+              only:
+                - master
