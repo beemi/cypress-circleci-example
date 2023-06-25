@@ -4,7 +4,7 @@
   "description": "Cypress CircleCI example",
   "main": "",
   "engines": {
-    "node": "v15.7.0",
+    "node": "15.14.0",
     "npm": "~7.24.2"
   },
   "scripts": {
