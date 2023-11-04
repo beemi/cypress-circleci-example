@@ -48,7 +48,7 @@
   },
   "homepage": "https://github.com/beemi/cypress-circleci-example#readme",
   "devDependencies": {
-    "cypress": "13.3.3",
+    "cypress": "13.4.0",
     "cypress-terminal-report": "5.3.9"
   }
 }
